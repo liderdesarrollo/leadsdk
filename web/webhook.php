@@ -78,7 +78,7 @@
         $settings['accessToken']        = "NTdlMDhmZTZjNmQxMzdjMzUwNTk3ZmY4NzY3YTE1NWJkZmRlNWMxMTA0MjA2YTVlMTE4ZTk4M2YwNjk1YzhhNA";
         //$settings['accessTokenSecret']  = ""; //for OAuth1.0a
         $settings['accessTokenExpires'] = 1540349518; //UNIX timestamp
-        $settings['refreshToken']       = "ZGU5YzMzOWU0NDY1OTI2OTNkZjI4NzAzOTBlYzhkMzk0ZGY3NGZhODFmYmUxOTJhNjkxMjBmMGNlMjAxMmI5ZA";
+        $settings['refreshToken']       = "git ";
         
         // Initiate the auth object
         $apiAuth = new ApiAuth();
@@ -120,20 +120,23 @@
         // Set the IP address the contact originated from if it is different than that of the server making the request
         //$data['ipAddress'] = $ipAddress;
         // Create the contact 
-        ob_start();
+        /*ob_start();
             $fields = $contactApi->getFieldList();
             var_dump($fields);
         $b = ob_get_clean();
-        error_log($b);
+        error_log($b);*/
         
         $contact = $contactApi->create($fields);
-    
+        
+        ob_start();
         if (isset($contact['error'])) {
             echo $contact['error']['code'] . ": " . $result['error']['message'];
         } else {
             // do whatever with the info
             echo "Contact created!";
         }
+        $b = ob_get_clean();
+        error_log($b);
     }
 
 
