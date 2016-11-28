@@ -41,7 +41,7 @@ $lead_email = $data['field_data'][1][values][0];
 $lead_first = $data['field_data'][2][values][0];
 $lead_last = $data['field_data'][2][values][0];
 
-if($lead_email){
+if(1==1){
 $publicKey = ''; 
 $secretKey = ''; 
 $callback  = ''; 
@@ -51,7 +51,7 @@ $settings = array(
     'version'          => 'OAuth2', // Version of the OAuth can be OAuth2 or OAuth1a. OAuth2 is the default value.
     'clientKey'        => '2jy9hbycbzk0ogw4ww0g8ossgg0ow8skggkkw8c800s4kwoogs',       // Client/Consumer key from Mautic
     'clientSecret'     => '686y10eqcdssg4coko4gooskcscccggww8gsw00k4cck088wgw',       // Client/Consumer secret key from Mautic
-    'callback'         => 'http://sheltered-wave-31226.herokuapp.com/webhook.php'        // Redirect URI/Callback URI for this script
+    'callback'         => 'https://sheltered-wave-31226.herokuapp.com/webhook.php'        // Redirect URI/Callback URI for this script
 );
 /*
 // If you already have the access token, et al, pass them in as well to prevent the need for reauthorization
