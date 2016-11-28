@@ -13,7 +13,6 @@ error_log(print_r($input, true));*/
 
 // Bootup the Composer autoloader
 include '/app/vendor/autoload.php';  
-session_name("demoh");
 session_start();
 use Mautic\Auth\ApiAuth;
 use Mautic\MauticApi;
@@ -50,8 +49,8 @@ $callback  = '';
 $settings = array(
     'baseUrl'          => 'http://98.142.105.122/~inboundfeliciden',       // Base URL of the Mautic instance
     'version'          => 'OAuth2', // Version of the OAuth can be OAuth2 or OAuth1a. OAuth2 is the default value.
-    'clientKey'        => '2jy9hbycbzk0ogw4ww0g8ossgg0ow8skggkkw8c800s4kwoogs',       // Client/Consumer key from Mautic
-    'clientSecret'     => '686y10eqcdssg4coko4gooskcscccggww8gsw00k4cck088wgw',       // Client/Consumer secret key from Mautic
+    'clientKey'        => '1_1qkt36ktsr8k4wskocss0c4gcsco00o000kso48w8so4kkok4s',       // Client/Consumer key from Mautic
+    'clientSecret'     => '2telqvs0fmw48k00g4oww88cwgs0s0kws8kck4g0wk8cc044s0',       // Client/Consumer secret key from Mautic
     'callback'         => 'https://sheltered-wave-31226.herokuapp.com/webhook.php'        // Redirect URI/Callback URI for this script
 );
 /*
