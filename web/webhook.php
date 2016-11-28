@@ -24,7 +24,6 @@ if ($verify_token === 'abc123') {
 //$string = '{"entry":[{"changes":[{"field":"leadgen","value":{"ad_id":0,"form_id":624049654589,"leadgen_id":6276465415920,"created_time":1476740844,"page_id":561823650667842,"adgroup_id":0}}],"id":"561823650667842","time":1476740844}],"object":"page"}	';
 //$data = json_decode($string, true);
 $data = json_decode(file_get_contents("php://input"),true);
-error_log($gen_id);
 $gen_id = $data['entry'][0]['changes'][0]['value']['leadgen_id'];
 $form_id = $data['entry'][0]['changes'][0]['value']['form_id'];
 $ch = curl_init();
@@ -43,17 +42,24 @@ $lead_last = "Anonimo";
 $lead_email = "sincorreo@gmail.com";
 
 $id_form = $data["id"];
-
-if($form_id == "198579217265271"){
+if($form_id == "198579217265271"){ // Black friday final
     $lead_email = $data['field_data'][1][values][0];
     $lead_first = $data['field_data'][2][values][0];
     $lead_last = $data['field_data'][2][values][0];
+}else if($form_id == "1701486986833396"){ // Descuentos Black friday
+    
+}else if($form_id == "208573666260152"){ //Black Friday
+    
+}else if($form_id == "1709171312744798"){ // Agendar Valoracion con detalle
+    
+}else if($form_id == "1143944375720504"){ // Agendar Valoracion
+    
 }
 
-ob_start();
+/*ob_start();
 var_dump($data);
 $buffer = ob_get_clean();
-error_log($buffer);
+error_log($buffer);*/
 
 if(1==1){
 $publicKey = ''; 
@@ -114,6 +120,11 @@ $fields['position'] = "coconut"; // i used this to automaticlly subscribe lead t
 // Set the IP address the contact originated from if it is different than that of the server making the request
 //$data['ipAddress'] = $ipAddress;
 // Create the contact 
+ob_start();
+    $fields = $contactApi->getFieldList();
+    var_dump($fields);
+$b = ob_get_clean();
+
 $contact = $contactApi->create($fields);
 
 ob_start();
