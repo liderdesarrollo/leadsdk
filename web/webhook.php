@@ -51,16 +51,40 @@
         $lead_first = $data['field_data'][2][values][0];
         $lead_last = $data['field_data'][2][values][0];
         $phone = $data['field_data'][3][values][0];;
+        
         $facebook = "https://www.facebook.com/felicident";
             
     }else if($form_id == "1701486986833396"){ // Descuentos Black friday
         
+        $lead_email = $data['field_data'][0][values][0];
+        $lead_first = $data['field_data'][1][values][0];
+        $phone = $data['field_data'][2][values][0];
+        
+        $facebook = "https://www.facebook.com/felicident";
+                    
     }else if($form_id == "208573666260152"){ //Black Friday
         
+        $lead_email = $data['field_data'][1][values][0];
+        $lead_first = $data['field_data'][2][values][0];
+        $phone = $data['field_data'][4][values][0];
+        
+        $facebook = "https://www.facebook.com/felicident";
+        
     }else if($form_id == "1709171312744798"){ // Agendar Valoracion con detalle
+                
+        $lead_email = $data['field_data'][0][values][0];
+        $lead_first = $data['field_data'][1][values][0];
+        $phone = $data['field_data'][2][values][0];
+        
+        $facebook = "https://www.facebook.com/felicident";
         
     }else if($form_id == "1143944375720504"){ // Agendar Valoracion
+                
+        $lead_email = $data['field_data'][0][values][0];
+        $lead_first = $data['field_data'][1][values][0];
+        $phone = $data['field_data'][2][values][0];
         
+        $facebook = "https://www.facebook.com/felicident";        
     }
     
     if(1==1){
