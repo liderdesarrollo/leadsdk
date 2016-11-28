@@ -26,6 +26,7 @@ if ($verify_token === 'abc123') {
 $data = json_decode(file_get_contents("php://input"),true);
 error_log($gen_id);
 $gen_id = $data['entry'][0]['changes'][0]['value']['leadgen_id'];
+$form_id = $data['entry'][0]['changes'][0]['value']['form_id'];
 $ch = curl_init();
 $url = "https://graph.facebook.com/v2.8/".$gen_id;
 $url_query = "access_token=EAAJJal9jlqQBANVaO3ct4QFIfoQBsq4yKUT7TLw4on4WJZCKhgQS6zoGJlEyrByv4QYBh3JLHKwk2pHCOoiAT2uz1UpMmOBRSn17R5EVbIVFGBYV8lof8FD8yh5a9K9eCBzWVnqV13l7JIkZBGNZCvqavSE8QcZD"; // you have to subscribe to the page that has the form to generate an Access Token
@@ -43,7 +44,7 @@ $lead_email = "sincorreo@gmail.com";
 
 $id_form = $data["id"];
 
-if($id_form == "200849333704926"){
+if($form_id == "198579217265271"){
     $lead_email = $data['field_data'][1][values][0];
     $lead_first = $data['field_data'][2][values][0];
     $lead_last = $data['field_data'][2][values][0];
