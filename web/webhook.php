@@ -24,6 +24,13 @@
     //$string = '{"entry":[{"changes":[{"field":"leadgen","value":{"ad_id":0,"form_id":624049654589,"leadgen_id":6276465415920,"created_time":1476740844,"page_id":561823650667842,"adgroup_id":0}}],"id":"561823650667842","time":1476740844}],"object":"page"}	';
     //$data = json_decode($string, true);
     $data = json_decode(file_get_contents("php://input"),true);
+    
+    ob_start();
+        var_dump($data);
+    $buffer = ob_get_clean();
+    error_log($buffer);
+    
+    
     $gen_id = $data['entry'][0]['changes'][0]['value']['leadgen_id'];
     $form_id = $data['entry'][0]['changes'][0]['value']['form_id'];
     $ch = curl_init();
@@ -49,7 +56,7 @@
         $lead_email = $data['field_data'][1][values][0];
         $lead_first = $data['field_data'][2][values][0];
         $lead_last = $data['field_data'][2][values][0];
-        $phone = "1234";
+        $phone = $data['field_data'][3][values][0];;
         $facebook = "http://facebook.com";
             
     }else if($form_id == "1701486986833396"){ // Descuentos Black friday
@@ -61,11 +68,6 @@
     }else if($form_id == "1143944375720504"){ // Agendar Valoracion
         
     }
-    
-    ob_start();
-        var_dump($data);
-    $buffer = ob_get_clean();
-    error_log($buffer);
     
     die();
     
