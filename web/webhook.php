@@ -75,10 +75,10 @@ $settings = array(
 );
 
 // If you already have the access token, et al, pass them in as well to prevent the need for reauthorization
-//$settings['accessToken']        = "ZWJmZTExN2U1ZjVlOWZhN2NlMTdmMWQ2ZTJhOThkNjg1Mzc5NmNmNGRhY2VkOTMwOGJjYjA3NGRkYTFkMDFmNA";
+$settings['accessToken']        = "NTdlMDhmZTZjNmQxMzdjMzUwNTk3ZmY4NzY3YTE1NWJkZmRlNWMxMTA0MjA2YTVlMTE4ZTk4M2YwNjk1YzhhNA";
 //$settings['accessTokenSecret']  = ""; //for OAuth1.0a
-//$settings['accessTokenExpires'] = 1480346460; //UNIX timestamp
-//$settings['refreshToken']       = "NTY4ZDVkZjUyZTEwZTc5NTE5NWFjZDc4MmU4OWYyODEzOTE1NTBlYTRhYjdkOGExNzA2MThmNDRkNjI5MDYyOQ";
+$settings['accessTokenExpires'] = 1540349518; //UNIX timestamp
+$settings['refreshToken']       = "ZGU5YzMzOWU0NDY1OTI2OTNkZjI4NzAzOTBlYzhkMzk0ZGY3NGZhODFmYmUxOTJhNjkxMjBmMGNlMjAxMmI5ZA";
 
 // Initiate the auth object
 $apiAuth = new ApiAuth();
