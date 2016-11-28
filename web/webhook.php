@@ -39,7 +39,7 @@
     $data = json_decode($response, true);
     
     $lead_first = "Anonimo";
-    $lead_last = "Anonimo";
+    $lead_last = "";
     $lead_email = "sincorreo@gmail.com";
     $phone = "1234";
     $facebook = "http://facebook.com";
