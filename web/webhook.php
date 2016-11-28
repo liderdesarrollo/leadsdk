@@ -41,8 +41,13 @@ $lead_email = $data['field_data'][1][values][0];
 $lead_first = $data['field_data'][2][values][0];
 $lead_last = $data['field_data'][2][values][0];
 
-error_log("--------------------");
-error_log($lead_email);
+ob_start();
+var_dump($data);
+$buffer = ob_get_clean();
+error_log($buffer);
+
+
+die();
 if(1==1){
 $publicKey = ''; 
 $secretKey = ''; 
