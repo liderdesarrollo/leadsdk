@@ -41,6 +41,8 @@ $lead_email = $data['field_data'][1][values][0];
 $lead_first = $data['field_data'][2][values][0];
 $lead_last = $data['field_data'][2][values][0];
 
+error_log("--------------------");
+error_log($lead_email);
 if(1==1){
 $publicKey = ''; 
 $secretKey = ''; 
@@ -56,7 +58,7 @@ $settings = array(
 
 // If you already have the access token, et al, pass them in as well to prevent the need for reauthorization
 $settings['accessToken']        = "OWI0NWM5YTAwODkzMzllYjZkODYxNTMxMjQyNjZjNTJjYjJhMmJkNmViZDA2ODQwZTc3YTAwNmJjNjM1NjA2NA";
-$settings['accessTokenSecret']  = ""; //for OAuth1.0a
+//$settings['accessTokenSecret']  = ""; //for OAuth1.0a
 $settings['accessTokenExpires'] = 1480320821; //UNIX timestamp
 $settings['refreshToken']       = "MjE1ODQ2YzY4NDYxYzkwNmMyM2Q2NDJhNTg2OTNhYzEyNDMzYTk3ZDEwNDNjNjRhNTIxNjAzZTEyODk3ZWZiZA";
 
@@ -101,6 +103,8 @@ $fields['position'] = "coconut"; // i used this to automaticlly subscribe lead t
 //$data['ipAddress'] = $ipAddress;
 // Create the contact 
 $contact = $contactApi->create($fields);
+
+ob_start();
 if (isset($contact['error'])) {
     echo $contact['error']['code'] . ": " . $result['error']['message'];
 } else {
@@ -108,3 +112,4 @@ if (isset($contact['error'])) {
     echo "Contact created!";
 }
 }
+
