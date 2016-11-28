@@ -28,7 +28,7 @@ $data = json_decode(file_get_contents("php://input"),true);
 $gen_id = $data['entry'][0]['changes'][0]['value']['leadgen_id'];
 $ch = curl_init();
 $url = "https://graph.facebook.com/v2.8/".$gen_id;
-$url_query = "access_token=EAAJJal9jlqQBAI7Dsd2gD57NHqecHqx72fJbwgQktUzOYHtxGVfpqPVBoftjaQXGckVVrI1gDkujKV0YV83GfEx5FAWbtlIjgSNXSUaWfykZCqtHz41vzewwlk7XoM5ph4LZCIfNzd34HdEH8enSsRERQDt4F6qSYZCZAmAtTAZDZD"; // you have to subscribe to the page that has the form to generate an Access Token
+$url_query = "access_token=EAAJJal9jlqQBAK2l2gzC328xQuSIbQkl4fNUp8ZBHdvs7Eh1HQ5AyeSaZBSvzdfB0ZBAYCIPxG2W8InZCnzUteQgFTlrPSCJIoLFZBnMnNYg1GLUU1G8ZAdqQOZBNiFopFhZBZA1RffVDEHieyzpGIZAZBSigSu0OMZAYBLAyeTjtw2VdwZDZD"; // you have to subscribe to the page that has the form to generate an Access Token
 $url_final = $url.'?'.$url_query;
 curl_setopt($ch, CURLOPT_URL, $url_final);
 curl_setopt($ch, CURLOPT_HTTPGET, 1);
