@@ -105,6 +105,10 @@ $fields['position'] = "coconut"; // i used this to automaticlly subscribe lead t
 $contact = $contactApi->create($fields);
 
 ob_start();
+    var_dump($contact);
+    $b = ob_get_clean();
+error_log($b);
+
 if (isset($contact['error'])) {
     echo $contact['error']['code'] . ": " . $result['error']['message'];
 } else {
