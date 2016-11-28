@@ -53,13 +53,13 @@ $settings = array(
     'clientSecret'     => '2telqvs0fmw48k00g4oww88cwgs0s0kws8kck4g0wk8cc044s0',       // Client/Consumer secret key from Mautic
     'callback'         => 'https://sheltered-wave-31226.herokuapp.com/webhook.php'        // Redirect URI/Callback URI for this script
 );
-/*
+
 // If you already have the access token, et al, pass them in as well to prevent the need for reauthorization
-$settings['accessToken']        = "";
+$settings['accessToken']        = "OWI0NWM5YTAwODkzMzllYjZkODYxNTMxMjQyNjZjNTJjYjJhMmJkNmViZDA2ODQwZTc3YTAwNmJjNjM1NjA2NA";
 $settings['accessTokenSecret']  = ""; //for OAuth1.0a
-$settings['accessTokenExpires'] = ""; //UNIX timestamp
-$settings['refreshToken']       = "";
-*/
+$settings['accessTokenExpires'] = 1480320821; //UNIX timestamp
+$settings['refreshToken']       = "MjE1ODQ2YzY4NDYxYzkwNmMyM2Q2NDJhNTg2OTNhYzEyNDMzYTk3ZDEwNDNjNjRhNTIxNjAzZTEyODk3ZWZiZA";
+
 // Initiate the auth object
 $apiAuth = new ApiAuth();
 $auth = $apiAuth->newAuth($settings);
