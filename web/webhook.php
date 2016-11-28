@@ -124,13 +124,9 @@ ob_start();
     $fields = $contactApi->getFieldList();
     var_dump($fields);
 $b = ob_get_clean();
+error_log($b);
 
 $contact = $contactApi->create($fields);
-
-ob_start();
-    var_dump($contact);
-    $b = ob_get_clean();
-error_log($b);
 
 if (isset($contact['error'])) {
     echo $contact['error']['code'] . ": " . $result['error']['message'];
