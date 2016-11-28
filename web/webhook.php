@@ -12,7 +12,7 @@ $input = json_decode(file_get_contents('php://input'), true);
 error_log(print_r($input, true));*/
 
 // Bootup the Composer autoloader
-include '/app/web/vendor/autoload.php';  
+include '/app/vendor/autoload.php';  
 session_start();
 use Mautic\Auth\ApiAuth;
 use Mautic\MauticApi;
