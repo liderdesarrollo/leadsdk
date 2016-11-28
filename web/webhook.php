@@ -24,15 +24,9 @@
     //$string = '{"entry":[{"changes":[{"field":"leadgen","value":{"ad_id":0,"form_id":624049654589,"leadgen_id":6276465415920,"created_time":1476740844,"page_id":561823650667842,"adgroup_id":0}}],"id":"561823650667842","time":1476740844}],"object":"page"}	';
     //$data = json_decode($string, true);
     $data = json_decode(file_get_contents("php://input"),true);
-    
-    ob_start();
-        var_dump($data);
-    $buffer = ob_get_clean();
-    error_log($buffer);
-    
-    
     $gen_id = $data['entry'][0]['changes'][0]['value']['leadgen_id'];
     $form_id = $data['entry'][0]['changes'][0]['value']['form_id'];
+    
     $ch = curl_init();
     $url = "https://graph.facebook.com/v2.8/".$gen_id;
     $url_query = "access_token=EAAJJal9jlqQBANVaO3ct4QFIfoQBsq4yKUT7TLw4on4WJZCKhgQS6zoGJlEyrByv4QYBh3JLHKwk2pHCOoiAT2uz1UpMmOBRSn17R5EVbIVFGBYV8lof8FD8yh5a9K9eCBzWVnqV13l7JIkZBGNZCvqavSE8QcZD"; // you have to subscribe to the page that has the form to generate an Access Token
@@ -57,7 +51,7 @@
         $lead_first = $data['field_data'][2][values][0];
         $lead_last = $data['field_data'][2][values][0];
         $phone = $data['field_data'][3][values][0];;
-        $facebook = "http://facebook.com";
+        $facebook = "https://www.facebook.com/felicident";
             
     }else if($form_id == "1701486986833396"){ // Descuentos Black friday
         
@@ -68,8 +62,6 @@
     }else if($form_id == "1143944375720504"){ // Agendar Valoracion
         
     }
-    
-    die();
     
     if(1==1){
         $publicKey = ''; 
