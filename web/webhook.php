@@ -13,6 +13,7 @@ error_log(print_r($input, true));*/
 
 // Bootup the Composer autoloader
 include '/app/vendor/autoload.php';  
+session_name("demoh");
 session_start();
 use Mautic\Auth\ApiAuth;
 use Mautic\MauticApi;
