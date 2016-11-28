@@ -40,12 +40,18 @@
     $lead_first = "Anonimo";
     $lead_last = "Anonimo";
     $lead_email = "sincorreo@gmail.com";
+    $phone = "1234";
+    $facebook = "http://facebook.com";
     
     $id_form = $data["id"];
     if($form_id == "198579217265271"){ // Black friday final
+        
         $lead_email = $data['field_data'][1][values][0];
         $lead_first = $data['field_data'][2][values][0];
         $lead_last = $data['field_data'][2][values][0];
+        $phone = "1234";
+        $facebook = "http://facebook.com";
+            
     }else if($form_id == "1701486986833396"){ // Descuentos Black friday
         
     }else if($form_id == "208573666260152"){ //Black Friday
@@ -56,10 +62,11 @@
         
     }
     
-    /*ob_start();
-    var_dump($data);
-    $buffer = ob_get_clean();
-    error_log($buffer);*/
+    ob_start();
+        var_dump($data);
+    error_log($buffer);
+    
+    die();
     
     if(1==1){
         $publicKey = ''; 
@@ -116,6 +123,8 @@
         $fields['firstname'] = $lead_first;
         $fields['lastname'] = $lead_last;
         $fields['email'] = $lead_email;
+        $fields['phone'] = $phone;
+        $fields['facebook'] = $facebook;
         $fields['position'] = "coconut"; // i used this to automaticlly subscribe lead to a list
         // Set the IP address the contact originated from if it is different than that of the server making the request
         //$data['ipAddress'] = $ipAddress;
