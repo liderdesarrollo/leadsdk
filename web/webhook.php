@@ -24,6 +24,7 @@ if ($verify_token === 'abc123') {
 //$string = '{"entry":[{"changes":[{"field":"leadgen","value":{"ad_id":0,"form_id":624049654589,"leadgen_id":6276465415920,"created_time":1476740844,"page_id":561823650667842,"adgroup_id":0}}],"id":"561823650667842","time":1476740844}],"object":"page"}	';
 //$data = json_decode($string, true);
 $data = json_decode(file_get_contents("php://input"),true);
+
 $gen_id = $data['entry'][0]['changes'][0]['value']['leadgen_id'];
 $ch = curl_init();
 $url = "https://graph.facebook.com/v2.8/".$gen_id;
@@ -38,4 +39,6 @@ $data = json_decode($response, true);
 //$lead_email = $data['field_data'][0][values][0];
 //$lead_first = $data['field_data'][1][values][0];
 //$lead_last = $data['field_data'][2][values][0];
+ob_start();
 var_dump($data);
+error_log(ob_get_clean());
