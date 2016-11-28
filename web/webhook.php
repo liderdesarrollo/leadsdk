@@ -64,6 +64,7 @@
     
     ob_start();
         var_dump($data);
+    $buffer = ob_get_clean();
     error_log($buffer);
     
     die();
