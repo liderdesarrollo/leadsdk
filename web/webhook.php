@@ -74,8 +74,8 @@
     }else if($form_id == "1709171312744798"){ // Agendar Valoracion con detalle
                 
         $lead_email = $data['field_data'][0][values][0];
-        $lead_first = $data['field_data'][1][values][0];
-        $phone = $data['field_data'][2][values][0];
+        $lead_first = $data['field_data'][2][values][0];
+        $phone = $data['field_data'][1][values][0];
         
         $facebook = "https://www.facebook.com/felicident";
         
