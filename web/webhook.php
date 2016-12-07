@@ -24,6 +24,7 @@
     //$string = '{"entry":[{"changes":[{"field":"leadgen","value":{"ad_id":0,"form_id":624049654589,"leadgen_id":6276465415920,"created_time":1476740844,"page_id":561823650667842,"adgroup_id":0}}],"id":"561823650667842","time":1476740844}],"object":"page"}	';
     //$data = json_decode($string, true);
     $data = json_decode(file_get_contents("php://input"),true);
+    error_log(json_encode($data));
     $gen_id = $data['entry'][0]['changes'][0]['value']['leadgen_id'];
     $form_id = $data['entry'][0]['changes'][0]['value']['form_id'];
     
@@ -164,7 +165,7 @@
             echo "Contact created!";
         }
         $b = ob_get_clean();
-        error_log($b);
+        //error_log($b);
     }
 
 
