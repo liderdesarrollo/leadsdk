@@ -143,7 +143,8 @@
         $fields['firstname'] = $lead_first;
         $fields['lastname'] = $lead_last;
         $fields['email'] = $lead_email;
-        $fields['phone'] = $phone;
+        //$fields['phone'] = $phone;
+        $fields['mobile'] = $phone;
         $fields['facebook'] = $facebook;
         $fields['position'] = "coconut"; // i used this to automaticlly subscribe lead to a list
         // Set the IP address the contact originated from if it is different than that of the server making the request
