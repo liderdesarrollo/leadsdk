@@ -48,7 +48,7 @@
     $id_form = $data["id"];
     
     ob_start();
-        var_dump($data);
+        var_dump($form_id);
     error_log(ob_get_clean());
     
     if($form_id == "198579217265271"){ // Black friday final
