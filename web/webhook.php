@@ -46,6 +46,11 @@
     $facebook = "http://facebook.com";
     
     $id_form = $data["id"];
+    
+    error_log("----");
+    error_log($id_form);
+    error_log("----");
+    
     if($form_id == "198579217265271"){ // Black friday final
         
         $lead_email = $data['field_data'][1][values][0];
