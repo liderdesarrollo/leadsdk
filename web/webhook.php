@@ -30,7 +30,7 @@
     
     $ch = curl_init();
     $url = "https://graph.facebook.com/v2.8/".$gen_id;
-    $url_query = "access_token=EAAJJal9jlqQBANVaO3ct4QFIfoQBsq4yKUT7TLw4on4WJZCKhgQS6zoGJlEyrByv4QYBh3JLHKwk2pHCOoiAT2uz1UpMmOBRSn17R5EVbIVFGBYV8lof8FD8yh5a9K9eCBzWVnqV13l7JIkZBGNZCvqavSE8QcZD"; // you have to subscribe to the page that has the form to generate an Access Token
+    $url_query = "access_token=EAAJJal9jlqQBAJ5JvoR0gnkZC9IKRAxvW5KiRRWvZC9gQbSWKehMIpapf40Cs9lfxF0o1s29VZAczvh2jZAMV7reiNJXSXk1Lw6R9osu3vhw9N2zyZBLQm2W0QZAPffg0N7Fk6f2ZBQfNTZCZBZAUCg6lXKG7LuCrbgSUZD"; // you have to subscribe to the page that has the form to generate an Access Token
     $url_final = $url.'?'.$url_query;
     curl_setopt($ch, CURLOPT_URL, $url_final);
     curl_setopt($ch, CURLOPT_HTTPGET, 1);
