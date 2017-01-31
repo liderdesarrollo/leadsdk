@@ -166,7 +166,8 @@
             echo "Contact created!";
         }
         $b = ob_get_clean();
-        //error_log($b);
+        
+        error_log($b);
     }
 
 
