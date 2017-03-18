@@ -92,6 +92,22 @@
         
         $facebook = "https://www.facebook.com/felicident";        
     }
+    else if($form_id == "1783518865308849"){ // Formulario Hombres
+                
+        $lead_email = $data['field_data'][1][values][0];
+        $lead_first = $data['field_data'][2][values][0];
+        $phone = $data['field_data'][4][values][0];
+        
+        $facebook = "https://www.facebook.com/felicident";        
+    }
+    else if($form_id == "743314509184418"){ // Formulario Mujeres
+                
+        $lead_email = $data['field_data'][1][values][0];
+        $lead_first = $data['field_data'][2][values][0];
+        $phone = $data['field_data'][4][values][0];
+        
+        $facebook = "https://www.facebook.com/felicident";        
+    }
     
     if(1==1){
         $publicKey = ''; 
