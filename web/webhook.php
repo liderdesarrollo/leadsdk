@@ -46,11 +46,24 @@
         $city = $data['field_data'][4]["values"][0];
         
         
-        error_log($escoge_el_programa_de_tu_interes);
+        $ch = curl_init();
+        $url = "http://98.142.105.122/~inbowundca2olica/external/index.php";
+        $url_query = "escoge_el_programa_de_tu_interes=" . $escoge_el_programa_de_tu_interes . "&full_name=" . $full_name . "&phone_number=" . $phone_number . "&email=" . $email . "&city=" . $city;
+        $url_final = $url.'?'.$url_query;
+        curl_setopt($ch, CURLOPT_URL, $url_final);
+        curl_setopt($ch, CURLOPT_HTTPGET, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $response = curl_exec($ch);
+        curl_close ($ch);
+        $data = json_decode($response, true);
+        
+        error_log($url_final);    
+        
+        /*error_log($escoge_el_programa_de_tu_interes);
         error_log($full_name);
         error_log($phone_number);
         error_log($email);
-        error_log($city);
+        error_log($city);*/
         
         /*$lead_first = $data['field_data'][2][values][0];
         $lead_last = $data['field_data'][2][values][0];
