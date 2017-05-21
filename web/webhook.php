@@ -37,7 +37,7 @@
     
     $id_form = $data["id"];
     
-    if($form_id == "1876724585924467"){
+    if($form_id == "1876724585924467" || $form_id == "1421660337918312"){
         
         $escoge_el_programa_de_tu_interes = $data['field_data'][0]["values"][0];
         $full_name = $data['field_data'][1]["values"][0];
