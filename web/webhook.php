@@ -57,7 +57,7 @@
         curl_close ($ch);
         //$data = json_decode($response, true);
         
-        //error_log("Link");
+        error_log($url_final);
         error_log($response);    
         
         /*error_log($escoge_el_programa_de_tu_interes);
