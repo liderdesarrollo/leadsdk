@@ -20,7 +20,7 @@
     }
     
     $data = json_decode(file_get_contents("php://input"),true);
-    error_log(json_encode($data));
+    
     $gen_id = $data['entry'][0]['changes'][0]['value']['leadgen_id'];
     $form_id = $data['entry'][0]['changes'][0]['value']['form_id'];
     
@@ -35,28 +35,29 @@
     curl_close ($ch);
     $data = json_decode($response, true);
     
-    $lead_first = "Anonimo";
-    $lead_last = "";
-    $lead_email = "sincorreo@gmail.com";
-    $phone = "1234";
-    $facebook = "http://facebook.com";
-    
     $id_form = $data["id"];
     
-    ob_start();
-        var_dump($form_id);
-        var_dump($data);
-    error_log(ob_get_clean());
-    
-    if($form_id == "198579217265271"){
+    if($form_id == "1876724585924467"){
         
-        $lead_email = $data['field_data'][1][values][0];
-        $lead_first = $data['field_data'][2][values][0];
+        $escoge_el_programa_de_tu_interes = $data['field_data'][0]["values"][0];
+        $full_name = $data['field_data'][1]["values"][0];
+        $phone_number = $data['field_data'][2]["values"][0];
+        $email = $data['field_data'][3]["values"][0];
+        $city = $data['field_data'][4]["values"][0];
+        
+        
+        error_log($escoge_el_programa_de_tu_interes);
+        error_log($full_name);
+        error_log($phone_number);
+        error_log($email);
+        error_log($city);
+        
+        /*$lead_first = $data['field_data'][2][values][0];
         $lead_last = $data['field_data'][2][values][0];
         $phone = $data['field_data'][3][values][0];;
         
         $facebook = "https://www.facebook.com/felicident";
-            
+          */  
     }
 
 
