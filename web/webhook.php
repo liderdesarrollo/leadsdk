@@ -1,5 +1,16 @@
 <?php
     
+    /*
+        App Id : 830126147162941
+        App Secret : 48e2ab802436fe7b967913a7018490bf
+        Short Live Access Token : EAALyZCs4e0z0BAGDfV6tpZCDKHWSXQGgKyNlLaxCJqCJ6gZCrEJWJ0Tij4ZBjudMGRVTJSbeAf9ZBXCzVJSrSq8Bg19JP93XgxYs0GgQ48nIJdCWeFH65d2P9Ay1dQoZASvfNVWwJnMgAgDw41FI7xQ5iey9mSBt4ICTaZAgs3qa3GUB8NccujtKgqQeY83BREZD
+    
+        {
+          "access_token": "EAALyZCs4e0z0BAJq1Y8ZCq46SiT1DfeppMHfyF9cVjzZCske3p9vzcUmG3VW4TYfIGZBkI6ZCdSlgndZBSG3dTWapIzsxl93k4bescIlAk6c0J8ZBzjbaH8pcqe3qfu99RwZB5ZBrf8EcYrOeeoCEiycjZCwDB5FWL6IYZD",
+          "token_type": "bearer",
+          "expires_in": 5183999
+        }
+    */
     
     $challenge = $_REQUEST["hub_challenge"];
     $verify_token = $_REQUEST["hub_verify_token"];
@@ -8,31 +19,14 @@
         echo $challenge;
     }
     
-    $input = json_decode(file_get_contents('php://input'), true);
-    error_log(print_r($input, true));
-    
-    __halt_compiler();
-    
-    // Bootup the Composer autoloader
-    include '/app/vendor/autoload.php';  
-    session_start();
-    use Mautic\Auth\ApiAuth;
-    use Mautic\MauticApi;
-    $challenge = isset($_REQUEST['hub_challenge']) ? $_REQUEST['hub_challenge'] : '';
-    $verify_token = isset($_REQUEST['hub_verify_token']) ? $_REQUEST['hub_verify_token'] : ''; 
-    if ($verify_token === 'abc123') {
-      echo $challenge;
-    }
-    //$string = '{"entry":[{"changes":[{"field":"leadgen","value":{"ad_id":0,"form_id":624049654589,"leadgen_id":6276465415920,"created_time":1476740844,"page_id":561823650667842,"adgroup_id":0}}],"id":"561823650667842","time":1476740844}],"object":"page"}	';
-    //$data = json_decode($string, true);
     $data = json_decode(file_get_contents("php://input"),true);
     error_log(json_encode($data));
     $gen_id = $data['entry'][0]['changes'][0]['value']['leadgen_id'];
     $form_id = $data['entry'][0]['changes'][0]['value']['form_id'];
     
     $ch = curl_init();
-    $url = "https://graph.facebook.com/v2.8/".$gen_id;
-    $url_query = "access_token=EAAJJal9jlqQBAJ5JvoR0gnkZC9IKRAxvW5KiRRWvZC9gQbSWKehMIpapf40Cs9lfxF0o1s29VZAczvh2jZAMV7reiNJXSXk1Lw6R9osu3vhw9N2zyZBLQm2W0QZAPffg0N7Fk6f2ZBQfNTZCZBZAUCg6lXKG7LuCrbgSUZD"; // you have to subscribe to the page that has the form to generate an Access Token
+    $url = "https://graph.facebook.com/v2.9/".$gen_id;
+    $url_query = "access_token=EAALyZCs4e0z0BAJq1Y8ZCq46SiT1DfeppMHfyF9cVjzZCske3p9vzcUmG3VW4TYfIGZBkI6ZCdSlgndZBSG3dTWapIzsxl93k4bescIlAk6c0J8ZBzjbaH8pcqe3qfu99RwZB5ZBrf8EcYrOeeoCEiycjZCwDB5FWL6IYZD"; // you have to subscribe to the page that has the form to generate an Access Token
     $url_final = $url.'?'.$url_query;
     curl_setopt($ch, CURLOPT_URL, $url_final);
     curl_setopt($ch, CURLOPT_HTTPGET, 1);
@@ -51,9 +45,10 @@
     
     ob_start();
         var_dump($form_id);
+        var_dump($data);
     error_log(ob_get_clean());
     
-    if($form_id == "198579217265271"){ // Black friday final
+    if($form_id == "198579217265271"){
         
         $lead_email = $data['field_data'][1][values][0];
         $lead_first = $data['field_data'][2][values][0];
@@ -62,135 +57,6 @@
         
         $facebook = "https://www.facebook.com/felicident";
             
-    }else if($form_id == "1701486986833396"){ // Descuentos Black friday
-        
-        $lead_email = $data['field_data'][0][values][0];
-        $lead_first = $data['field_data'][1][values][0];
-        $phone = $data['field_data'][2][values][0];
-        
-        $facebook = "https://www.facebook.com/felicident";
-                    
-    }else if($form_id == "208573666260152"){ //Black Friday
-        
-        $lead_email = $data['field_data'][1][values][0];
-        $lead_first = $data['field_data'][2][values][0];
-        $phone = $data['field_data'][4][values][0];
-        
-        $facebook = "https://www.facebook.com/felicident";
-        
-    }else if($form_id == "1709171312744798"){ // Agendar Valoracion con detalle
-                
-        $lead_email = $data['field_data'][0][values][0];
-        $lead_first = $data['field_data'][2][values][0];
-        $phone = $data['field_data'][1][values][0];
-        
-        $facebook = "https://www.facebook.com/felicident";
-        
-    }else if($form_id == "1143944375720504"){ // Agendar Valoracion
-                
-        $lead_email = $data['field_data'][0][values][0];
-        $lead_first = $data['field_data'][1][values][0];
-        $phone = $data['field_data'][2][values][0];
-        
-        $facebook = "https://www.facebook.com/felicident";        
-    }
-    else if($form_id == "1783518865308849"){ // Formulario Hombres
-                
-        $lead_email = $data['field_data'][1][values][0];
-        $lead_first = $data['field_data'][2][values][0];
-        $phone = $data['field_data'][4][values][0];
-        
-        $facebook = "https://www.facebook.com/felicident";        
-    }
-    else if($form_id == "743314509184418"){ // Formulario Mujeres
-                
-        $lead_email = $data['field_data'][1][values][0];
-        $lead_first = $data['field_data'][2][values][0];
-        $phone = $data['field_data'][4][values][0];
-        
-        $facebook = "https://www.facebook.com/felicident";        
-    }
-    
-    if(1==1){
-        $publicKey = ''; 
-        $secretKey = ''; 
-        $callback  = ''; 
-        // ApiAuth::initiate will accept an array of OAuth settings
-        $settings = array(
-            'baseUrl'          => 'http://98.142.105.122/~inboundfeliciden',       // Base URL of the Mautic instance
-            'version'          => 'OAuth2', // Version of the OAuth can be OAuth2 or OAuth1a. OAuth2 is the default value.
-            'clientKey'        => '1_1qkt36ktsr8k4wskocss0c4gcsco00o000kso48w8so4kkok4s',       // Client/Consumer key from Mautic
-            'clientSecret'     => '2telqvs0fmw48k00g4oww88cwgs0s0kws8kck4g0wk8cc044s0',       // Client/Consumer secret key from Mautic
-            'callback'         => 'https://sheltered-wave-31226.herokuapp.com/webhook.php'        // Redirect URI/Callback URI for this script
-        );
-        
-        // If you already have the access token, et al, pass them in as well to prevent the need for reauthorization
-        $settings['accessToken']        = "NTdlMDhmZTZjNmQxMzdjMzUwNTk3ZmY4NzY3YTE1NWJkZmRlNWMxMTA0MjA2YTVlMTE4ZTk4M2YwNjk1YzhhNA";
-        //$settings['accessTokenSecret']  = ""; //for OAuth1.0a
-        $settings['accessTokenExpires'] = 1540349518; //UNIX timestamp
-        $settings['refreshToken']       = "git ";
-        
-        // Initiate the auth object
-        $apiAuth = new ApiAuth();
-        $auth = $apiAuth->newAuth($settings);
-        // Initiate process for obtaining an access token; this will redirect the user to the $authorizationUrl and/or
-        // set the access_tokens when the user is redirected back after granting authorization
-        // If the access token is expired, and a refresh token is set above, then a new access token will be requested
-        $auth->enableDebugMode();
-        try {
-            if ($auth->validateAccessToken()) {
-                // Obtain the access token returned; call accessTokenUpdated() to catch if the token was updated via a
-                // refresh token
-                // $accessTokenData will have the following keys:
-                // For OAuth1.0a: access_token, access_token_secret, expires
-                // For OAuth2: access_token, expires, token_type, refresh_token
-                
-                if ($auth->accessTokenUpdated()) {
-                    $accessTokenData = $auth->getAccessTokenData();
-                    var_dump($accessTokenData);
-                    //store access token data in the settings above
-                }
-            }else{
-                
-                echo 'not valid access token';
-            }
-        } catch (Exception $e) {
-            // Do Error handling
-        }
-        // Create an api context by passing in the desired context (Contacts, Forms, Pages, etc), the $auth object from above
-        // and the base URL to the Mautic server (i.e. http://my-mautic-server.com/api/)
-        $api = new MauticApi();
-        $contactApi = $api->newApi('contacts', $auth, $settings['baseUrl']);
-        //Create a new Contact
-        $fields =array(); 
-        $fields['firstname'] = $lead_first;
-        $fields['lastname'] = $lead_last;
-        $fields['email'] = $lead_email;
-        //$fields['phone'] = $phone;
-        $fields['mobile'] = $phone;
-        $fields['facebook'] = $facebook;
-        $fields['position'] = "coconut"; // i used this to automaticlly subscribe lead to a list
-        // Set the IP address the contact originated from if it is different than that of the server making the request
-        //$data['ipAddress'] = $ipAddress;
-        // Create the contact 
-        /*ob_start();
-            $fields = $contactApi->getFieldList();
-            var_dump($fields);
-        $b = ob_get_clean();
-        error_log($b);*/
-        
-        $contact = $contactApi->create($fields);
-        
-        ob_start();
-        if (isset($contact['error'])) {
-            echo $contact['error']['code'] . ": " . $result['error']['message'];
-        } else {
-            // do whatever with the info
-            echo "Contact created!";
-        }
-        $b = ob_get_clean();
-        
-        error_log($b);
     }
 
 
