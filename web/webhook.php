@@ -45,6 +45,7 @@
         $email = $data['field_data'][3]["values"][0];
         $city = $data['field_data'][4]["values"][0];
         
+        $full_name = preg_replace('/\s+/', '', $full_name);
         
         $ch = curl_init();
         $url = "http://98.142.105.122/~inbowundca2olica/external/index.php";
